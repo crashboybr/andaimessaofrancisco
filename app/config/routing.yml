@@ -1,0 +1,8 @@
+andaime_frontend:
+    resource: "@AndaimeFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+andaime_backend:
+    resource: "@AndaimeBackendBundle/Resources/config/routing.yml"
+    prefix:   /admin
+

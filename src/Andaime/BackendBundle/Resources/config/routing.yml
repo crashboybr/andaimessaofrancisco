@@ -1,0 +1,7 @@
+andaime_backend_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: AndaimeBackendBundle:Default:index }
+
+AndaimeBackendBundle_produtos:
+        resource: "@AndaimeBackendBundle/Resources/config/routing/product.yml"
+        prefix:   /produtos

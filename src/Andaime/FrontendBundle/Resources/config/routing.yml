@@ -1,0 +1,7 @@
+andaime_frontend_homepage:
+    pattern:  /
+    defaults: { _controller: AndaimeFrontendBundle:Default:index }
+
+andaime_frontend_product:
+    pattern:  /produtos
+    defaults: { _controller: AndaimeFrontendBundle:Default:product }
