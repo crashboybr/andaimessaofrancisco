@@ -145,6 +145,7 @@ class ProductController extends Controller
         $form = $this->createForm(new ProductType(), $entity, array(
             'action' => $this->generateUrl('produtos_update', array('id' => $entity->getId())),
             'method' => 'PUT',
+            'csrf_protection' => false
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));

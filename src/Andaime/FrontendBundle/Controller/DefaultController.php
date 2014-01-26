@@ -21,4 +21,19 @@ class DefaultController extends Controller
 
         return $this->render('AndaimeFrontendBundle:Default:product.html.twig', array('products' => $products));
     }
+
+    public function contactAction()
+    {
+        return $this->render('AndaimeFrontendBundle:Default:contact.html.twig');
+    }
+
+    public function aboutAction()
+    {
+        return $this->render('AndaimeFrontendBundle:Default:about.html.twig');
+    }
+
+    public function serviceAction()
+    {
+        return $this->render('AndaimeFrontendBundle:Default:service.html.twig');
+    }
 }
