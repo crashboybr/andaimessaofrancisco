@@ -6,14 +6,22 @@ andaime_frontend_product:
     pattern:  /produtos
     defaults: { _controller: AndaimeFrontendBundle:Default:product }
 
+andaime_frontend_view_product:
+    pattern:  /produto/{product}
+    defaults: { _controller: AndaimeFrontendBundle:Default:viewProduct }
+
 andaime_frontend_contact:
     pattern:  /contato
     defaults: { _controller: AndaimeFrontendBundle:Default:contact }
 
 andaime_frontend_about:
-    pattern:  /sobre
+    pattern:  /empresa
     defaults: { _controller: AndaimeFrontendBundle:Default:about }
 
 andaime_frontend_service:
-    pattern:  /servicos
+    pattern:  /manuais
     defaults: { _controller: AndaimeFrontendBundle:Default:service }
+
+andaime_frontend_map:
+    pattern:  /mapa
+    defaults: { _controller: AndaimeFrontendBundle:Default:map }

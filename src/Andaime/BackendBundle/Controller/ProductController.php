@@ -190,7 +190,7 @@ class ProductController extends Controller
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
-
+//\Doctrine\Common\Util\Debug::dump($form->isValid());exit;
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('AndaimeBackendBundle:Product')->find($id);
@@ -215,7 +215,9 @@ class ProductController extends Controller
      */
     private function createDeleteForm($id)
     {
-        return $this->createFormBuilder()
+        
+        
+        return $this->createFormBuilder(null,array('csrf_protection' => false))
             ->setAction($this->generateUrl('produtos_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))

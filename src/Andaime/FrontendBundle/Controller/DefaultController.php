@@ -3,12 +3,19 @@
 namespace Andaime\FrontendBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Andaime\FrontendBundle\Form\Type\ContactType;
+use Andaime\BackendBundle\Entity\Product;
 
 class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AndaimeFrontendBundle:Default:index.html.twig', array('name' => 'oi'));
+        $em = $this->getDoctrine()->getManager();
+
+        $pics = $em->getRepository('AndaimeBackendBundle:Picture')
+            ->findAll();
+
+        return $this->render('AndaimeFrontendBundle:Default:index.html.twig', array('pics' => $pics));
     }
 
     public function productAction()
@@ -22,7 +29,56 @@ class DefaultController extends Controller
         return $this->render('AndaimeFrontendBundle:Default:product.html.twig', array('products' => $products));
     }
 
+    public function viewProductAction(Product $product)
+    {
+        //var_dump($product);exit;
+        $em = $this->getDoctrine()->getManager();
+
+
+        $products = $em->getRepository('AndaimeBackendBundle:Product')
+            ->findAll();
+
+        return $this->render('AndaimeFrontendBundle:Default:viewProduct.html.twig', array('product' => $product, 'products' => $products));
+    }
+
     public function contactAction()
+    {   
+        $request = $this->getRequest();
+        $form = $this->createForm(new ContactType());
+
+    if ($request->isMethod('POST')) {
+        $form->bind($request);
+        
+        if ($form->isValid()) {
+            $message = \Swift_Message::newInstance()
+                ->setSubject($form->get('subject')->getData())
+                ->setFrom($form->get('email')->getData())
+                ->setTo('bernardoniteroi@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                        'AndaimeFrontendBundle:Mail:contact.html.twig',
+                        array(
+                            'ip' => $request->getClientIp(),
+                            'name' => $form->get('name')->getData(),
+                            'message' => $form->get('message')->getData()
+                        )
+                    )
+                );
+
+            $this->get('mailer')->send($message);
+
+            $request->getSession()->getFlashBag()->add('success', 'Your email has been sent! Thanks!');
+
+            return $this->redirect($this->generateUrl('contact'));
+        }
+    }
+
+        return $this->render('AndaimeFrontendBundle:Default:contact.html.twig', array(
+        'form' => $form->createView()
+        ));
+    }
+
+    public function sendContactAction()
     {
         return $this->render('AndaimeFrontendBundle:Default:contact.html.twig');
     }
@@ -35,5 +91,10 @@ class DefaultController extends Controller
     public function serviceAction()
     {
         return $this->render('AndaimeFrontendBundle:Default:service.html.twig');
+    }
+
+    public function mapAction()
+    {
+        return $this->render('AndaimeFrontendBundle:Default:map.html.twig');
     }
 }

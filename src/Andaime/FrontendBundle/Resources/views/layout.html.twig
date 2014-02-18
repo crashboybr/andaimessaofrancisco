@@ -43,10 +43,36 @@
 <header>
     <div class="container">
         <h1 class="navbar-brand navbar-brand_">
-            <a href="index.html"><img src="/img/logoandaime.png" alt=""></a><br>
-            <span>aandaimes em geral</span>
+            <div style='float: left;'>
+                <a href="index.html"><img src="/img/logos/logo1.png" alt="" style="width: 280px;"></a><br>
+            </div>
+            <div style='margin-top: 50px;'>
+                <div style='float: left;'><img src="/img/logos/logo2.png" style="width: 280px;" /></div>
+                <div style='float: left;'>
+                    <img src="/img/logos/logo3.png" style="width: 280px;" /><br />
+                    <img src="/img/logos/logo4.png" style="width: 280px;" />
+                </div>
+            </div>
         </h1>
-        <div class="menuBox">
+       <div id="topo_atendimento" style="position: relative;   float: right;     font-size: 1.4em;     text-transform: uppercase; font-family: FuturaLight'; color: #464646;     line-height: 1.4em;     margin: 0px 0px 0px 0;">
+                
+                    
+            <div class="right" style="top: -3px; position: relative; float: right; text-align: right; margin: 0 7px 0 20px;">
+                <h2 style="
+                color: #464646; font-size: 1.9em; font-weight: normal; margin: 0; padding: 0; 
+                margin-bottom: 2px;
+                text-align: right;
+                ">
+                <span clas="ddd" style="font-size: 15px;">(21)</span> 2714-6363<br />
+                <span clas="ddd" style="font-size: 15px;">(21)</span> 2612-1139</h2>
+                <span class="right" style="">faleconosco@andaimessaofrancisco.com.br</span>
+
+            </div>
+                    
+                    
+        </div>
+
+        <div class="menuBox" style='margin-right: -45px;'>
             <nav class="navbar navbar-default navbar-static-top tm_navbar clearfix" role="navigation">
                 <ul class="nav sf-menu clearfix">
                     <li class="{% block inicio %}{% endblock %}"><a href="{{ path('andaime_frontend_homepage') }}">início</a>
@@ -58,10 +84,11 @@
                             <li class="triangle"></li>
                         </ul>-->
                     </li>
-                    <li class="{% block sobre %}{% endblock %}"><a href="{{ path('andaime_frontend_about') }}">sobre nós</a></li>
+                    <li class="{% block sobre %}{% endblock %}"><a href="{{ path('andaime_frontend_about') }}">a empresa</a></li>
                     <li class="{% block produtos %}{% endblock %}"><a href="{{ path('andaime_frontend_product') }}">produtos</a></li>
-                    <li class="{% block servicos %}{% endblock %}"><a href="{{ path('andaime_frontend_service') }}">serviços</a></li>
+                    <li class="{% block servicos %}{% endblock %}"><a href="{{ path('andaime_frontend_service') }}">manuais</a></li>
                     <li class="{% block contato %}{% endblock %}"><a href="{{ path('andaime_frontend_contact') }}">contato</a></li>
+                    <li class="{% block mapa %}{% endblock %}"><a href="{{ path('andaime_frontend_map') }}">mapa</a></li>
                 </ul>
             </nav>
             
@@ -87,11 +114,12 @@
             </article>
             <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <ul>
-                    <li class="active"><a href="index.html">home</a></li>
-                    <li><a href="index-1.html">about us</a></li>
-                    <li><a href="index-2.html">products</a></li>
-                    <li><a href="index-3.html">services</a></li>
-                    <li><a href="index-4.html">contacts</a></li>
+                    <li><a href="{{ path('andaime_frontend_homepage') }}">início</a>
+                    <li><a href="{{ path('andaime_frontend_about') }}">a empresa</a></li>
+                    <li><a href="{{ path('andaime_frontend_product') }}">produtos</a></li>
+                    <li><a href="{{ path('andaime_frontend_service') }}">manuais</a></li>
+                    <li><a href="{{ path('andaime_frontend_contact') }}">contato</a></li>
+                    <li><a href="{{ path('andaime_frontend_map') }}">mapa</a></li>
                 </ul>
             </article>
             <article class="col-lg-3 col-md-3 col-sm-6 col-xs-6">

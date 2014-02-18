@@ -1,0 +1,42 @@
+
+{% extends 'AndaimeFrontendBundle::layout.html.twig' %}
+
+{% block title %}produto - {{ product.name }}{% endblock %}
+{% block global %}indent{% endblock %}
+{% block produtos %}active{% endblock %}
+{% block body %}
+<script>
+   $(window).load(function() {
+     // Initialize the gallery
+    $('.list3 figure a').touchTouch();
+  });
+  </script> 
+ <div class="container">
+        <div class="row">
+             <article class="col-lg-4 col-md-4 col-sm-6">
+                <ul class="plus_list">
+                    {% for p in products %}
+                        <li><a href="{{ path('andaime_frontend_view_product', { 'product': p.id }) }}">{{ p.name }}</a></li>
+                    {% endfor %}
+                </ul>
+                
+            </article>
+            <article class="col-lg-8 col-md-8 col-sm-6 mainBox">
+                <h2>produto<em></em></h2>
+
+
+                <ul class="list3">
+                    <li>
+                        <figure><a href="{{ asset(product.pic) }}"><img src="{{ asset(product.pic) }}" alt=""></a></figure>
+                        <div class="extra-wrap">
+                            <h5>{{ product.name }}</h5>
+                            <p>{{ product.description }} </p>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </article>
+        
+        </div>
+    </div>
+{% endblock %}
