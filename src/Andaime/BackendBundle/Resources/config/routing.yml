@@ -5,3 +5,7 @@ AndaimeBackendBundle_produtos:
 AndaimeBackendBundle_fotos:
         resource: "@AndaimeBackendBundle/Resources/config/routing/picture.yml"
         prefix:   /fotos
+
+AndaimeBackendBundle_manual:
+        resource: "@AndaimeBackendBundle/Resources/config/routing/manual.yml"
+        prefix:   /manual

@@ -88,9 +88,16 @@ class DefaultController extends Controller
         return $this->render('AndaimeFrontendBundle:Default:about.html.twig');
     }
 
-    public function serviceAction()
+    public function manualAction()
     {
-        return $this->render('AndaimeFrontendBundle:Default:service.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+
+        $manuals = $em->getRepository('AndaimeBackendBundle:Manual')
+            ->findAll();
+
+        return $this->render('AndaimeFrontendBundle:Default:manual.html.twig', array('products' => $manuals));
+        
     }
 
     public function mapAction()

@@ -20,7 +20,7 @@ andaime_frontend_about:
 
 andaime_frontend_service:
     pattern:  /manuais
-    defaults: { _controller: AndaimeFrontendBundle:Default:service }
+    defaults: { _controller: AndaimeFrontendBundle:Default:manual }
 
 andaime_frontend_map:
     pattern:  /mapa
