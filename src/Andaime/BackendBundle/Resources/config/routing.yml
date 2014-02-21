@@ -1,7 +1,19 @@
-andaime_backend_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: AndaimeBackendBundle:Default:index }
+
+admin_login:
+    pattern:  /login
+    defaults: { _controller: AndaimeBackendBundle:Default:login }
+
+login_check:
+    pattern:   /login_check
 
 AndaimeBackendBundle_produtos:
         resource: "@AndaimeBackendBundle/Resources/config/routing/product.yml"
         prefix:   /produtos
+
+AndaimeBackendBundle_fotos:
+        resource: "@AndaimeBackendBundle/Resources/config/routing/picture.yml"
+        prefix:   /fotos
+
+AndaimeBackendBundle_manual:
+        resource: "@AndaimeBackendBundle/Resources/config/routing/manual.yml"
+        prefix:   /manual

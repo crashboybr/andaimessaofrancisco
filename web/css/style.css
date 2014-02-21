@@ -95,12 +95,12 @@ h5 {
 	background: #ffffff;
 }
 .global.indent {
-	padding-top: 50px;
+	padding-top: 0px;
 }
 /*-----menu-----*/
 .menuBox {
 	float: right;
-	padding-top: 17px;
+	padding-top: 0px;
 }
 .menuBox > p {
 	float: right;

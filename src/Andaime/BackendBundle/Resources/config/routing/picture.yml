@@ -1,0 +1,30 @@
+fotos:
+    pattern:  /
+    defaults: { _controller: "AndaimeBackendBundle:Picture:index" }
+
+fotos_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AndaimeBackendBundle:Picture:show" }
+
+fotos_new:
+    pattern:  /new
+    defaults: { _controller: "AndaimeBackendBundle:Picture:new" }
+
+fotos_create:
+    pattern:  /create
+    defaults: { _controller: "AndaimeBackendBundle:Picture:create" }
+    requirements: { _method: post }
+
+fotos_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AndaimeBackendBundle:Picture:edit" }
+
+fotos_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AndaimeBackendBundle:Picture:update" }
+    requirements: { _method: post|put }
+
+fotos_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AndaimeBackendBundle:Picture:delete" }
+    requirements: { _method: post|delete }

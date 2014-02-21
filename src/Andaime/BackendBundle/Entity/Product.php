@@ -117,9 +117,9 @@ class Product
      */
     public function removeUpload()
     {
-        if ($file = $this->getAbsolutePath()) {
-            unlink($file);
-        }
+        //if ($file = $this->getAbsolutePath()) {
+        //    unlink($file);
+        //}
     }
 
 
@@ -138,7 +138,7 @@ class Product
     {
         return null === $this->pic
             ? null
-            : $this->getUploadRootDir().'/'.$this->path;
+            : $this->getUploadRootDir().'/'.$this->pic;
     }
 
     public function getWebPath()

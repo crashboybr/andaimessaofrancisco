@@ -1,0 +1,30 @@
+manual:
+    pattern:  /
+    defaults: { _controller: "AndaimeBackendBundle:Manual:index" }
+
+manual_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AndaimeBackendBundle:Manual:show" }
+
+manual_new:
+    pattern:  /new
+    defaults: { _controller: "AndaimeBackendBundle:Manual:new" }
+
+manual_create:
+    pattern:  /create
+    defaults: { _controller: "AndaimeBackendBundle:Manual:create" }
+    requirements: { _method: post }
+
+manual_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AndaimeBackendBundle:Manual:edit" }
+
+manual_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AndaimeBackendBundle:Manual:update" }
+    requirements: { _method: post|put }
+
+manual_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AndaimeBackendBundle:Manual:delete" }
+    requirements: { _method: post|delete }

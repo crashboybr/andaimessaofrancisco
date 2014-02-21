@@ -9,64 +9,69 @@
         <div class="row">
             <article class="col-lg-12 col-md-12 col-sm-12">
                 <h2>contato<em></em></h2>
-                <figure class="map">
-                    <iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
 
-                </figure>
             </article>
             <section class="formBox clearfix">
                 <article class="col-lg-4 col-md-4 col-sm-4 info">
                     <h2>endereços<em></em></h2>
-                    <h5>Address 1:</h5>
-                    <p>The Company Name Inc. <br>8901 Marmora Road, Glasgow, D04 89GR.</p>
-                    <h5>Telephones:</h5>
-                    <p>+1 800 559 6580 <br>+1 800 603 6035</p>
-                    <h5>Address 2:</h5>
-                    <p>The Company Name Inc. <br>9863 - 9867 Mill Road, Cambridge, MG09 99HT.</p>
+                    <h5>Matriz:</h5>
+                    <p>Estrada Engenheiro Pacheco de Carvalho - 817 <br /> Pendotiba (Paineiras) - Niterói - RJ
+                    <br />(21) 2714-6363 / 2612-1139</p>
+                    <h5>Filial:</h5>
+                    <p>Rua José Higino - n.XX <br /> Tijuca - RJ<br />
+                    (21) 9994-7048</p>
                 </article>
                 <article class="col-lg-8 col-md-8 col-sm-8">
+                    {% for label, flashes in app.session.flashbag.all %}
+{% for flash in flashes %}
+<div class="alert alert-{{ label }}">
+{{ flash }}
+</div>
+{% endfor %}
+{% endfor %}
                     <h2>deixe sua mensagem<em></em></h2>
+                    
+                     <form id="contact-form" action="{{ path('andaime_frontend_contact') }}" novalidate form_enctype(form)="" method="post">
+                    {{ form_start(form, { attr: { 'novalidate': 'novalidate' }}) }}
                     <form id="contact-form">
-                        <div class="success-message">Contact form submitted.</div>
+                        <div class="success-message">Enviado com sucesso.</div>
                         <div class="holder">
                             <div class="form-div-1 clearfix">
-                                <p>Name*</p>
+                                <p>Nome*</p>
+                                
                                 <label class="name">
-                                    <input type="text" placeholder="" data-constraints="@Required @JustLetters" />
-                                    <span class="empty-message">*This field is required.</span>
-                                    <span class="error-message">*This is not a valid name.</span>
+                                    {{ form_widget(form.name) }}
+                                    {{ form_errors(form.name) }}
                                 </label>
                             </div>
+
                             <div class="form-div-2 clearfix">
                                 <p>E-mail*</p>
                                 <label class="email">
-                                    <input type="text" placeholder="" data-constraints="@Required @Email" />
-                                    <span class="empty-message">*This field is required.</span>
-                                    <span class="error-message">*This is not a valid email.</span>
+                                    {{ form_widget(form.email) }}
+                                    {{ form_errors(form.email) }}
                                 </label>
                             </div>
                             <div class="form-div-3 clearfix">
-                                <p>Phone</p>
-                                <label class="phone notRequired">
-                                    <input type="text" placeholder="" data-constraints="@JustNumbers"/>
-                                    <span class="empty-message">*This field is required.</span>
-                                    <span class="error-message">*This is not a valid phone.</span>
+                                <p>Assunto*</p>
+                                <label class="phone">
+                                    {{ form_widget(form.subject) }}
+                                    {{ form_errors(form.subject) }}
                                 </label>
                             </div>
                         </div>
                         <div class="form-div-4 clearfix">
-                            <p>Message*</p>
+                            <p>Mensagem*</p>
                             <label class="message">
-                                <textarea placeholder="" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
-                                <span class="empty-message">*This field is required.</span>
-                                <span class="error-message">*The message is too short.</span>
-                            </label>
+                                    {{ form_widget(form.message) }}
+                                    {{ form_errors(form.message) }}
+                                </label>
                         </div>
                         <div class="btns">
-                            <a href="#" data-type="submit" class="btn-default btn1">submit</a>
-                            <p>* required fields</p>
+                            <button type="submit" class="btn-default btn1">enviar</button>
+                            <p>* campos obrigatórios</p>
                         </div>  
-                    </form>
+                    {{ form_end(form) }}
                 </article>
             </section>
         </div>
