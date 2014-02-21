@@ -14,12 +14,12 @@
             <section class="formBox clearfix">
                 <article class="col-lg-4 col-md-4 col-sm-4 info">
                     <h2>endereços<em></em></h2>
-                    <h5>Address 1:</h5>
-                    <p>The Company Name Inc. <br>8901 Marmora Road, Glasgow, D04 89GR.</p>
-                    <h5>Telephones:</h5>
-                    <p>+1 800 559 6580 <br>+1 800 603 6035</p>
-                    <h5>Address 2:</h5>
-                    <p>The Company Name Inc. <br>9863 - 9867 Mill Road, Cambridge, MG09 99HT.</p>
+                    <h5>Matriz:</h5>
+                    <p>Estrada Engenheiro Pacheco de Carvalho - 817 <br /> Pendotiba (Paineiras) - Niterói - RJ
+                    <br />(21) 2714-6363 / 2612-1139</p>
+                    <h5>Filial:</h5>
+                    <p>Rua José Higino - n.XX <br /> Tijuca - RJ<br />
+                    (21) 9994-7048</p>
                 </article>
                 <article class="col-lg-8 col-md-8 col-sm-8">
                     {% for label, flashes in app.session.flashbag.all %}
@@ -68,7 +68,7 @@
                                 </label>
                         </div>
                         <div class="btns">
-                            <button type="submit" class="btn-default btn1">submit</button>
+                            <button type="submit" class="btn-default btn1">enviar</button>
                             <p>* campos obrigatórios</p>
                         </div>  
                     {{ form_end(form) }}
