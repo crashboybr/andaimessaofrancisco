@@ -55,7 +55,7 @@ h1.navbar-brand_ span {
 h2 {
 	color: #413f41;
 	font: bold 10px Arial, Helvetica, sans-serif;
-	margin: 0 0 37px 0;
+	margin: 0 0 0px 0;
 	width: 100%;
 	text-align: center;
 	text-transform: uppercase;
@@ -303,7 +303,7 @@ header.indent {
 	border-bottom: 8px solid #ffd593;
 }
 footer {
-	padding-top: 77px;
+	padding-top: 0px;
 	padding-bottom: 28px;
 }
 footer h4 {
@@ -649,7 +649,7 @@ footer .privacy {
 }
 /*-----thumbs-----*/
 .bannerBox {
-	margin-bottom: 79px;
+	margin-bottom: 40px;
 }
 .bannerBox article {
 	margin-bottom: 24px;

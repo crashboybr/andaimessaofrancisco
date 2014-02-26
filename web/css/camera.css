@@ -167,7 +167,7 @@
     font:bold 28px/30px 'PT Sans';
     color:#363536;
     font-style:normal;
-    margin-bottom:26px;
+    margin-bottom:20px;
     letter-spacing:0;
 }
 .camera-caption .more a {
@@ -188,7 +188,7 @@
     float:right;
     text-align: left;    
     background:#fff;
-    padding:54px 44px 14px 41px;
+    padding:25px 44px 0px 41px;
 }
 .camera_prev span, .camera_next span{
 	position: absolute;
