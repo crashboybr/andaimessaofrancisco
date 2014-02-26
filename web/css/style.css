@@ -4,7 +4,8 @@ body {
 	background: #ffffff;
 	font: 10px Arial, Helvetica, sans-serif;
 	line-height: 1.428571429;
-	color: #bfbfbf;
+	/*color: #bfbfbf;*/
+	color: #808080;
 }
 a {
 	text-decoration: none;
@@ -334,7 +335,8 @@ footer ul li {
 }
 footer ul li a {
 	font: bold 10px Arial, Helvetica, sans-serif;
-	color: #bfbfbf;
+	/*color: #bfbfbf;*/
+	color: #808080;
 	letter-spacing: 1px;
 }
 footer ul li a:hover {
