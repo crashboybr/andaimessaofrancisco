@@ -53,7 +53,7 @@ class DefaultController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject($form->get('subject')->getData())
                 ->setFrom($form->get('email')->getData())
-                ->setTo('bernardoniteroi@gmail.com')
+                ->setTo('contato@andaimessaofrancisco.com.br')
                 ->setBody(
                     $this->renderView(
                         'AndaimeFrontendBundle:Mail:contact.html.twig',
