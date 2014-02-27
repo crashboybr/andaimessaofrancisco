@@ -60,7 +60,9 @@ class DefaultController extends Controller
                         array(
                             'ip' => $request->getClientIp(),
                             'name' => $form->get('name')->getData(),
-                            'message' => $form->get('message')->getData()
+                            'message' => $form->get('message')->getData(),
+                            'email' => $form->get('email')->getData(),
+                            'subject' => $form->get('subject')->getData()
                         )
                     )
                 );
