@@ -44,7 +44,7 @@ class DefaultController extends Controller
     public function contactAction()
     {   
         $request = $this->getRequest();
-        $form = $this->createForm(new ContactType());
+        $form = $this->createForm(new ContactType(), null, array('csrf_protection' => false));
 
     if ($request->isMethod('POST')) {
         $form->bind($request);
@@ -65,11 +65,17 @@ class DefaultController extends Controller
                     )
                 );
 
+                        //exit;
+
             $this->get('mailer')->send($message);
 
-            $request->getSession()->getFlashBag()->add('success', 'Your email has been sent! Thanks!');
+            
+            $this->get('session')->getFlashBag()->add(
+                    'notice',
+                    'Seu contato foi enviado!'
+                );
 
-            return $this->redirect($this->generateUrl('contact'));
+            return $this->redirect($this->generateUrl('andaime_frontend_contact'));
         }
     }
 

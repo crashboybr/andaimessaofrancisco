@@ -19,12 +19,11 @@
                     <br />(21) 2714-6363 / 2612-1139</p>
                 </article>
                 <article class="col-lg-8 col-md-8 col-sm-8">
-                    {% for label, flashes in app.session.flashbag.all %}
-{% for flash in flashes %}
-<div class="alert alert-{{ label }}">
-{{ flash }}
-</div>
-{% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('notice') %}
+    <div class="flash-notice">
+        {{ flashMessage }} alow
+    </div>
 {% endfor %}
                     <h2>deixe sua mensagem<em></em></h2>
                     

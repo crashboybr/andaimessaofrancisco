@@ -43,19 +43,19 @@ class ContactType extends AbstractType
     {
         $collectionConstraint = new Collection(array(
             'name' => array(
-                new NotBlank(array('message' => 'Name should not be blank.')),
+                new NotBlank(array('message' => 'Preencha o nome.')),
                 new Length(array('min' => 2))
             ),
             'email' => array(
-                new NotBlank(array('message' => 'Email should not be blank.')),
-                new Email(array('message' => 'Invalid email address.'))
+                new NotBlank(array('message' => 'Preencha o email.')),
+                new Email(array('message' => 'Email inválido.'))
             ),
             'subject' => array(
-                new NotBlank(array('message' => 'Subject should not be blank.')),
+                new NotBlank(array('message' => 'Preencha o assunto.')),
                 new Length(array('min' => 3))
             ),
             'message' => array(
-                new NotBlank(array('message' => 'Message should not be blank.')),
+                new NotBlank(array('message' => 'Preencha a mensagem.')),
                 new Length(array('min' => 5))
             )
         ));
