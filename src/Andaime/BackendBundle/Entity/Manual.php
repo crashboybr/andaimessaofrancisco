@@ -46,6 +46,16 @@ class Manual
      */
     private $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="manuals", cascade={"ALL"})
+     */
+    protected $products;
+
+    public function __toString()
+    {
+        return $this->title;
+    }
+
     /* begin upload file */
     /**
      * @Assert\File(maxSize="60000000")
@@ -242,5 +252,45 @@ class Manual
     public function getDescription()
     {
         return $this->description;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add products
+     *
+     * @param \Andaime\BackendBundle\Entity\Product $products
+     * @return Manual
+     */
+    public function addProduct(\Andaime\BackendBundle\Entity\Product $products)
+    {
+        $this->products[] = $products;
+
+        return $this;
+    }
+
+    /**
+     * Remove products
+     *
+     * @param \Andaime\BackendBundle\Entity\Product $products
+     */
+    public function removeProduct(\Andaime\BackendBundle\Entity\Product $products)
+    {
+        $this->products->removeElement($products);
+    }
+
+    /**
+     * Get products
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProducts()
+    {
+        return $this->products;
     }
 }

@@ -1,9 +1,9 @@
 
 {% extends 'AndaimeFrontendBundle::layout.html.twig' %}
 
-{% block title %}produto - {{ product.name }}{% endblock %}
+{% block title %}manual - {{ manual.title }}{% endblock %}
 {% block global %}indent{% endblock %}
-{% block produtos %}active{% endblock %}
+{% block manuais %}active{% endblock %}
 {% block body %}
 <script>
    $(window).load(function() {
@@ -15,24 +15,22 @@
         <div class="row">
              <article class="col-lg-4 col-md-4 col-sm-6">
                 <ul class="plus_list">
-                    {% for p in products %}
-                        <li><a href="{{ path('andaime_frontend_view_product', { 'product': p.id }) }}">{{ p.name }}</a></li>
+                    {% for p in manuals %}
+                        <li><a href="{{ path('andaime_frontend_view_manual', { 'manual': p.id }) }}">{{ p.title }}</a></li>
                     {% endfor %}
                 </ul>
                 
             </article>
             <article class="col-lg-8 col-md-8 col-sm-6 mainBox">
-                <h2>produto<em></em></h2>
+                <h2>manual<em></em></h2>
 
 
                 <ul class="list3">
                     <li>
-                        <figure><a href="{{ asset(product.pic) }}"><img src="{{ asset(product.pic) }}" alt=""></a></figure>
                         <div class="extra-wrap">
-                            <h5>{{ product.name }}</h5>
-                            <p>Descrição:<br/>{{ product.description }} </p>
-                            <p>Características:<br />{{ product.feature }} </p>
-                            <p>Manual:<br /><a href="{{ path('andaime_frontend_view_manual', { manual: product.manuals.id }) }}">{{ product.manuals.title }}</a> </p>
+                            <h5>{{ manual.title }}</h5>
+                            <p>Descrição:<br/>{{ manual.description }} </p>
+                            <p><a href="{{ asset(manual.pic) }}">Download</a> </p>
                         </div>
                     </li>
                     

@@ -8,13 +8,13 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Product
+ * Picture
  *
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Product
+class Picture
 {
     /**
      * @var integer
@@ -28,13 +28,6 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="pic", type="string", length=255)
      */
     private $pic;
@@ -42,31 +35,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="manual_id", type="integer")
-     */
-    private $manualId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Manual", inversedBy="products", cascade={"persist"})
-     * @ORM\JoinColumn(name="manual_id", referencedColumnName="id")
-     */
-    protected $manuals;
-
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="feature", type="text")
-     */
-    private $feature;
 
     /* begin upload file */
     /**
@@ -139,9 +110,9 @@ class Product
      */
     public function removeUpload()
     {
-        //if ($file = $this->getAbsolutePath()) {
-        //    unlink($file);
-        //}
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
     }
 
 
@@ -160,7 +131,7 @@ class Product
     {
         return null === $this->pic
             ? null
-            : $this->getUploadRootDir().'/'.$this->pic;
+            : $this->getUploadRootDir().'/'.$this->path;
     }
 
     public function getWebPath()
@@ -181,7 +152,7 @@ class Product
     {
         // get rid of the __DIR__ so it doesnt screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/produtos';
+        return 'uploads/fotos';
     } 
 
     /* end upload file */
@@ -198,33 +169,10 @@ class Product
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Product
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * Set pic
      *
      * @param string $pic
-     * @return Product
+     * @return Picture
      */
     public function setPic($pic)
     {
@@ -247,7 +195,7 @@ class Product
      * Set description
      *
      * @param string $description
-     * @return Product
+     * @return Picture
      */
     public function setDescription($description)
     {
@@ -264,74 +212,5 @@ class Product
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set feature
-     *
-     * @param string $feature
-     * @return Product
-     */
-    public function setFeature($feature)
-    {
-        $this->feature = $feature;
-
-        return $this;
-    }
-
-    /**
-     * Get feature
-     *
-     * @return string 
-     */
-    public function getFeature()
-    {
-        return $this->feature;
-    }
-
-    /**
-     * Set manualId
-     *
-     * @param integer $manualId
-     * @return Product
-     */
-    public function setManualId($manualId)
-    {
-        $this->manualId = $manualId;
-
-        return $this;
-    }
-
-    /**
-     * Get manualId
-     *
-     * @return integer 
-     */
-    public function getManualId()
-    {
-        return $this->manualId;
-    }
-
-    /**
-     * Set manuals
-     *
-     * @param \Andaime\BackendBundle\Entity\Manual $manuals
-     * @return Product
-     */
-    public function setManuals(\Andaime\BackendBundle\Entity\Manual $manuals = null)
-    {
-        $this->manuals = $manuals;
-
-        return $this;
-    }
-
-    /**
-     * Get manuals
-     *
-     * @return \Andaime\BackendBundle\Entity\Manual 
-     */
-    public function getManuals()
-    {
-        return $this->manuals;
     }
 }

@@ -5,6 +5,7 @@ namespace Andaime\FrontendBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Andaime\FrontendBundle\Form\Type\ContactType;
 use Andaime\BackendBundle\Entity\Product;
+use Andaime\BackendBundle\Entity\Manual;
 
 class DefaultController extends Controller
 {
@@ -31,7 +32,7 @@ class DefaultController extends Controller
 
     public function viewProductAction(Product $product)
     {
-        //var_dump($product);exit;
+        
         $em = $this->getDoctrine()->getManager();
 
 
@@ -104,8 +105,20 @@ class DefaultController extends Controller
         $manuals = $em->getRepository('AndaimeBackendBundle:Manual')
             ->findAll();
 
-        return $this->render('AndaimeFrontendBundle:Default:manual.html.twig', array('products' => $manuals));
+        return $this->render('AndaimeFrontendBundle:Default:manual.html.twig', array('manuals' => $manuals));
         
+    }
+
+    public function viewManualAction(Manual $manual)
+    {
+        //var_dump($product);exit;
+        $em = $this->getDoctrine()->getManager();
+
+
+        $manuals = $em->getRepository('AndaimeBackendBundle:Manual')
+            ->findAll();
+
+        return $this->render('AndaimeFrontendBundle:Default:viewManual.html.twig', array('manual' => $manual, 'manuals' => $manuals));
     }
 
     public function mapAction()

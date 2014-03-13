@@ -18,6 +18,8 @@ class ProductType extends AbstractType
             ->add('name')
             ->add('file')
             ->add('description')
+            ->add('feature')
+            ->add('manuals')
         ;
     }
     

@@ -1,15 +1,25 @@
 
 {% extends 'AndaimeFrontendBundle::layout.html.twig' %}
 
-{% block title %}serviços{% endblock %}
+{% block title %}manuais{% endblock %}
 {% block global %}indent{% endblock %}
-{% block servico %}active{% endblock %}
+{% block manual %}active{% endblock %}
 {% block body %}
+
 <div class="container">
         <div class="row">
-            <article class="col-lg-12 col-md-12 col-sm-12">
-                <h2 style="font-size: 20px;">Em desenvolvimento...</h2>
+             <article class="col-lg-4 col-md-4 col-sm-6">
+                <ul class="plus_list">
+                    {% for p in manuals %}
+                        <li><a href="{{ path('andaime_frontend_view_manual', { 'manual': p.id }) }}">{{ p.title }}</a></li>
+                    {% endfor %}
+                </ul>
+                
             </article>
+            <article class="col-lg-8 col-md-8 col-sm-6 mainBox">
+     
+            </article>
+        
         </div>
     </div>
 {% endblock %}

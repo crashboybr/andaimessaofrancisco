@@ -8,13 +8,13 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Product
+ * Manual
  *
  * @ORM\Table()
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Product
+class Manual
 {
     /**
      * @var integer
@@ -28,9 +28,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255)
      */
-    private $name;
+    private $title;
 
     /**
      * @var string
@@ -47,30 +47,13 @@ class Product
     private $description;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="manual_id", type="integer")
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="manuals", cascade={"ALL"})
      */
-    private $manualId;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Manual", inversedBy="products", cascade={"persist"})
-     * @ORM\JoinColumn(name="manual_id", referencedColumnName="id")
-     */
-    protected $manuals;
-
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="feature", type="text")
-     */
-    private $feature;
+    protected $products;
 
     /* begin upload file */
     /**
-     * @Assert\File(maxSize="6000000")
+     * @Assert\File(maxSize="60000000")
      */
     private $file;
 
@@ -103,7 +86,7 @@ class Product
     {
         if (null !== $this->getFile()) {
             
-            $filename = "image_" . uniqid();
+            $filename = "manual_" . uniqid();
             $this->pic = $this->getUploadDir() . '/' . $filename.'.'.$this->getFile()->guessExtension();
         }
     }
@@ -181,7 +164,7 @@ class Product
     {
         // get rid of the __DIR__ so it doesnt screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/produtos';
+        return 'uploads/manuais';
     } 
 
     /* end upload file */
@@ -198,33 +181,33 @@ class Product
     }
 
     /**
-     * Set name
+     * Set title
      *
-     * @param string $name
-     * @return Product
+     * @param string $title
+     * @return Manual
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string 
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
      * Set pic
      *
      * @param string $pic
-     * @return Product
+     * @return Manual
      */
     public function setPic($pic)
     {
@@ -247,7 +230,7 @@ class Product
      * Set description
      *
      * @param string $description
-     * @return Product
+     * @return Manual
      */
     public function setDescription($description)
     {
@@ -264,74 +247,5 @@ class Product
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set feature
-     *
-     * @param string $feature
-     * @return Product
-     */
-    public function setFeature($feature)
-    {
-        $this->feature = $feature;
-
-        return $this;
-    }
-
-    /**
-     * Get feature
-     *
-     * @return string 
-     */
-    public function getFeature()
-    {
-        return $this->feature;
-    }
-
-    /**
-     * Set manualId
-     *
-     * @param integer $manualId
-     * @return Product
-     */
-    public function setManualId($manualId)
-    {
-        $this->manualId = $manualId;
-
-        return $this;
-    }
-
-    /**
-     * Get manualId
-     *
-     * @return integer 
-     */
-    public function getManualId()
-    {
-        return $this->manualId;
-    }
-
-    /**
-     * Set manuals
-     *
-     * @param \Andaime\BackendBundle\Entity\Manual $manuals
-     * @return Product
-     */
-    public function setManuals(\Andaime\BackendBundle\Entity\Manual $manuals = null)
-    {
-        $this->manuals = $manuals;
-
-        return $this;
-    }
-
-    /**
-     * Get manuals
-     *
-     * @return \Andaime\BackendBundle\Entity\Manual 
-     */
-    public function getManuals()
-    {
-        return $this->manuals;
     }
 }

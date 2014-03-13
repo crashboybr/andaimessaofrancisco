@@ -18,9 +18,13 @@ andaime_frontend_about:
     pattern:  /empresa
     defaults: { _controller: AndaimeFrontendBundle:Default:about }
 
-andaime_frontend_service:
+andaime_frontend_manual:
     pattern:  /manuais
     defaults: { _controller: AndaimeFrontendBundle:Default:manual }
+
+andaime_frontend_view_manual:
+    pattern:  /manual/{manual}
+    defaults: { _controller: AndaimeFrontendBundle:Default:viewManual }
 
 andaime_frontend_map:
     pattern:  /mapa
