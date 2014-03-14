@@ -5,3 +5,8 @@ services:
 #    andaime_backend.example:
 #        class: %andaime_backend.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+    twig.extension.txt:
+        class: Twig_Extensions_Extension_Text
+        tags:
+            - { name: twig.extension }
+
