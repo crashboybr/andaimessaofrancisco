@@ -3,7 +3,9 @@
 {% block body %}
 <script>
     $(document).ready(function(){
-        jQuery('.camera_wrap').camera();
+        jQuery('.camera_wrap').camera({
+            time: 10000
+        });
     });
 </script>
 <section class="slider">
