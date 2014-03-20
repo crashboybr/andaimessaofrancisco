@@ -73,5 +73,5 @@ swiftmailer:
     encryption: ssl
     auth_mode:  login
     host:       smtp.gmail.com
-    username:   bernardoniteroi
-    password:   Dyd6cOf2nPtV06
+    username:   locaimequipamentos
+    password:   locaime12
